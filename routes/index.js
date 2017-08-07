@@ -16,17 +16,9 @@ router.get('/', function(req, res, next) {
   console.log(chalk.blue('Index page create called'))
   let articles = Page.findAll({
     attributes: ['title','urlTitle']
-  })
-  // .then(function(abc) {
-    // console.log(abc.title)
-  // })
-  // var templateObj = {
-  //   title: foundPage.title,
-  //   content: foundPage.content,
-  //   status: foundPage.status,
-  //   date: foundPage.date
-  // }
-  res.render('index', articles)
+  }).then (articles => res.render('index', {articles})
+  )
+
 
 
   // res.send('got to GET /');
