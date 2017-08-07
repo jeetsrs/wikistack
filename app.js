@@ -37,3 +37,10 @@ models.db.sync()
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/', routes)
+
+
+// Error handling - express NEEDS all 4 parameters else it won't know this is an error handler middleware
+app.use(function (err, req, res, next){
+  console.error(err);
+  res.status(500).send(err.message);
+})

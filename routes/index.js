@@ -10,6 +10,7 @@ var Page = models.Page;
 var User = models.User;
 // ...
 router.use('/wiki', wikiRouter);
+router.use('/users', userRouter);
 // or, in one line: router.use('/wiki', require('./wiki'));
 
 router.get('/', function (req, res, next) {
@@ -21,5 +22,7 @@ router.get('/', function (req, res, next) {
   }));
   // res.send('got to GET /');
 });
+
+
 
 module.exports = router;

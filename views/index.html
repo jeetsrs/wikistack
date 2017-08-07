@@ -5,8 +5,8 @@
   <hr>
   <ul class="list-unstyled">
     {% for article in articles%}
-        <li><b><a href="/wiki/{{article.title}}">{{article.title}}</a></b><br><span><a href="/wiki/{{article.urlTitle}}">{{article.urlTitle}}</a></span>
-    </li><br> {% endfor %}
+        <li><b><a href="/wiki/{{article.urlTitle}}">{{article.title}}</a></b></li><br>
+    {% endfor %}
     <!-- PLACEHOLDER LIST OF PAGES -->
   </ul>
 {% endblock %}

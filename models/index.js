@@ -68,6 +68,9 @@ var User = db.define('user', {
     }
 });
 
+//Create a "relation" between the two tables.
+Page.belongsTo(User, { as: 'author' });
+
 module.exports = {
     Page: Page,
     User: User,
