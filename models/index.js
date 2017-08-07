@@ -31,10 +31,26 @@ var Page = db.define(
     }
 });
 
+Page.hook('beforeValidate', function(Abrar, options) {
+
+    if (Abrar.title) {
+    // Removes all non-alphanumeric characters from title
+    // And make whitespace underscore
+    // console.log(chalk.blue('HOOK Title: ', Abrar.content));
+    Abrar.urlTitle = Abrar.title.replace(/\s+/g, '_').replace(/\W/g, '');
+    console.log(chalk.blue('HOOK Title: ', Abrar.urlTitle));
+  } else {
+    // Generates random 5 letter string
+    Abrar.urlTitle = Math.random().toString(36).substring(2, 7);
+    console.log(chalk.blue('Generated Title: ', Abrar.urlTitle));
+  }
+})
+
 var User = db.define('user', {
     name: {
         type: Sequelize.STRING,
         allowNull: false,
+
         validate: {
             is: ["^[a-z]+$",'i']
         }
@@ -48,9 +64,9 @@ var User = db.define('user', {
     }
 });
 
-Page
-  .create({ title: 'Title Test Page', urlTitle: 'TestPage', content: 'hello world, you are fantastic', status: 'open'})
-  .then(console.log(chalk.blue('Page.create called')));
+// Page
+//   .create({ title: 'Title Test Page', urlTitle: 'TestPage', content: 'hello world, you are fantastic', status: 'open'})
+//   .then(console.log(chalk.blue('Page.create called')));
 
 //   xyz => {
 //       //'urlTitle'

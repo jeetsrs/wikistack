@@ -4,6 +4,7 @@ var app = express();
 const volleyball = require('volleyball');
 var nunjucks = require('nunjucks');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 var routes = require('./routes');
 var models = require('./models');
@@ -29,4 +30,5 @@ models.db.sync()
 })
 .catch(console.error);
 
+app.use(express.static(path.join(__dirname, '/public')));
 app.use('/', routes)
