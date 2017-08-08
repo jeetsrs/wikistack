@@ -5,8 +5,8 @@ var db = new Sequelize('postgres://postgres:postgres123@localhost:5432/wikistack
     dialect: 'postgres',
     logging: false
 });
-
-//PAGE has 3 parameters - 'page', OBJ and OBJ
+//DB.DEFINE ONLY Accepts 3 parameters
+//PAGE has 3 parameters - 'page' name, Definition of filds and Getter/Setter methods
 var Page = db.define(
     'page', {
         title: {
