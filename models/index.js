@@ -33,10 +33,10 @@ var Page = db.define(
                 return '/wiki/' + this.urlTitle;
             }
         }
-    });
+    }
+);
 
 Page.hook('beforeValidate', function (Abrar, options) {
-
     if (Abrar.title) {
         // Removes all non-alphanumeric characters from title
         // And make whitespace underscore

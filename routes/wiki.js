@@ -69,6 +69,7 @@ router.get('/add', function (req, res, next) {
 });
 
 router.get('/:urlTitle', function (req, res, next) {
+  // Page.find --- can be used to find more than one item
   Page.findOne({
       where: {
         urlTitle: req.params.urlTitle
